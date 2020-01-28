@@ -1,5 +1,14 @@
-# CALCULADORA DE NUMEROS COMPLEJOS
-En este repositorio se expone una libreria de numeros complejos llamada "cal_complejos" que contiene las siguientes funciones:
+# COMPLEX NUMBER CALCULATOR
+In this repository a library of complex numbers called "cal_complejos" is exposed, in this different operations are expressed for these numbers.
+# Getting Started
+- Download the file cal_complejos.py found in this repository.
+- Save the file in the same place as the project in which you want to implement it.
+# Prerequisites
+to use this library you need to have python 3.7 installed on your computer
+- Import from your project the library "cal_complejos".
+- It matters from the project in which you want to use the "cal_complejos" library.
+# Running the tests
+
   - suma de complejos
   - resta de complejos
   - multiplicacion de un complejo por un escalar escalar
