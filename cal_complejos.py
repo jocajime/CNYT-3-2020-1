@@ -32,4 +32,5 @@ def prettyPrint(a):
         
         return ""+str(a[0])+"+"+str(a[1])+"i"
 def phase(a):
-    return (math.atan(a[1],a[0])*180)/math.pi
+    return math.atan2(a[1]/a[0])
+    
