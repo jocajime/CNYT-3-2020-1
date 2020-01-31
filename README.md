@@ -8,6 +8,11 @@ to use this library you need to have python 3.7 installed on your computer
 - Import from your project the library "cal_complejos".
 - It matters from the project in which you want to use the "cal_complejos" library.
 # Running the tests
+To run the tests of this library:
+- Download the file from this repository called test_cal.py
+- We save this file in the same location as our library and we run it.
+- All these tests must be correct.
+# Break down into end to end tests
 
   - suma de complejos
   - resta de complejos
@@ -20,4 +25,4 @@ to use this library you need to have python 3.7 installed on your computer
   - imprimir correctamente un numero complejo
 
 en esta libreria se representan los numeros complejos por medio de una tupla, y se importa con el nombre de la misma.
-el autor de esta es Joel Arturo Carvajal Jimenez
+el autor de esta es Joel Arturo Carvajal Jimenez  
