@@ -1,14 +1,14 @@
 # COMPLEX NUMBER CALCULATOR
 In this repository a library of complex numbers called "cal_complejos" is exposed, in this different operations are expressed for these numbers.
    - sum of complexes
-   - subtraction of complexes
-   - multiplication of a complex by a scalar scalar
-   - mutiplication between complexes
-   - division between complexes
-   - module of a complex
-   - conjugate of a complex
-   - change a complex from a Cartesian to a scalar
-   - print a complex number correctly
+   - subtraction of complexes
+   - multiplication of a complex by a scalar scalar
+   - mutiplication between complexes
+   - division between complexes
+   - module of a complex
+   - conjugate of a complex
+   - change a complex from a Cartesian to a scalar
+   - print a complex number correctly
 In this library the complex numbers are represented by means of a tuple, and it is imported with its name.
 # Getting Started
 - Download the file cal_complejos.py found in this repository.
