@@ -104,10 +104,37 @@ def multiplicacionMatriz(a, b):
         print("las matrices no se pueden multiplicar")
         return False
 
+def matrizHermitania(a):
+    if len(a) == len(a[0]):
+        temp = transpuestaMatriz(a)
+        temp = conjugadoMatriz(temp)
+        if temp == a: return True
+        else: return False
+    else:
+        print("no es una matriz cuadrada")
+        return False
+
+def matrizUnitaria(a):
+    if len(a) == len(a[0]):
+        temp = transpuestaMatriz(a)
+        temp = conjugadoMatriz(temp)
+        c = multiplicacionMatriz(a,temp)
+        d= multiplicacionMatriz(temp,a)
+        if c == d: return True
+        else: return False
+    else:
+        print("no es una matriz cuadrada")
+        return False
 
 
-
-
+def Tensor(a,b):
+    for i in range(len(a)):
+        for j in range(len(a[0])):
+            c = []
+            for x in range(len(b)):
+                for y in range(len(b[0])): c.append(multiplicacion(a[i][j], b[x][y]))
+            a[i][j] = c
+    return a
 
 
 
