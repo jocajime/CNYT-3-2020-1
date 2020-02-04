@@ -27,6 +27,6 @@ These tests analyze the correct functioning of the different operations implemen
 # Built With
 https://www.python.org/
 # License
-review LICENSE
+review LICENSE.md
 # Authors 
 Joel Carvajal - total work
