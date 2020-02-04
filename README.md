@@ -26,5 +26,7 @@ To run the tests of this library:
 These tests analyze the correct functioning of the different operations implemented in this library.
 # Built With
 https://www.python.org/
+# License
+review LICENSE
 # Authors 
 Joel Carvajal - total work
