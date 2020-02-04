@@ -67,5 +67,17 @@ class testNumerosComplejosCal(unittest.TestCase):
         
         self.assertFalse(cal_complejos.aPolar(a)=="12-11i")
 
+
+        
+
+    def testTensor(self):
+        oo = [[(1,0)],[(0,0)],[(0,0)],[(0,0)]]
+        h = [[(1/(2**0.5),0),(1/(2**0.5),0)],[(1/(2**0.5),0),(1/(2**0.5)*-1,0)]]
+        x = [[(0,0),(1,0)],[(1,0),(0,0)]]
+    
+        c = multiplicacionMatriz(multiplicacionMatriz(tensorMatrices(h,x),tensorMatrices(h,h)),oo)
+        self.assertEqual(c,[[(1/(2**0.5),0),(1/(2**0.5),0)],[(0,0),(0,0)]])
+        
+
 if __name__ == '__main__':
     unittest.main()

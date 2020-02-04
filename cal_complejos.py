@@ -127,15 +127,26 @@ def matrizUnitaria(a):
         return False
 
 
-def Tensor(a,b):
+def tensorMatrices(a,b):
+    res=[]
     for i in range(len(a)):
-        for j in range(len(a[0])):
+        for j in range(len(b)):
             c = []
-            for x in range(len(b)):
-                for y in range(len(b[0])): c.append(multiplicacion(a[i][j], b[x][y]))
-            a[i][j] = c
-    return a
+            for x in range(len(a[i])):
+                for y in range(len(b[x])): c.append(multiplicacion(a[i][x], b[j][y]))
+            res.append(c)
+           
+    return res
 
+def main():
+    oo = [[(1,0)],[(0,0)],[(0,0)],[(0,0)]]
+    h = [[(1/(2**0.5),0),(1/(2**0.5),0)],[(1/(2**0.5),0),(1/(2**0.5)*-1,0)]]
+    x = [[(0,0),(1,0)],[(1,0),(0,0)]]
+    
+    c = multiplicacionMatriz(multiplicacionMatriz(tensorMatrices(h,x),tensorMatrices(h,h)),oo)
+    for i in c:
+        print(i)
+              
 
 
 
