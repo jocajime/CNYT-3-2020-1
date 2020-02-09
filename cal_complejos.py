@@ -67,6 +67,20 @@ def productoInterno(a, b):
         return res
     else: print("la dimension de los vectores es incorrecta")
 
+def normaVectorial(a):
+    res = 0
+    for i in a:
+        res += i**2
+    return res**0.5
+
+def distanciaVectores(a,b):
+    '''esta funcion realiza la distancia de vectores en r3'''
+    x1 = (a[0] - b[0])**2
+    y1 = (a[1] - b[1])**2
+    z1 = (a[2] - b[2])**2
+    return (x1+y1+z1)**0.5
+
+
 '''matrices complejas'''
 
 def sumaMatrices(a,b):
@@ -137,17 +151,6 @@ def tensorMatrices(a,b):
             res.append(c)
            
     return res
-
-def main():
-    oo = [[(1,0)],[(0,0)],[(0,0)],[(0,0)]]
-    h = [[(1/(2**0.5),0),(1/(2**0.5),0)],[(1/(2**0.5),0),(1/(2**0.5)*-1,0)]]
-    x = [[(0,0),(1,0)],[(1,0),(0,0)]]
-    
-    c = multiplicacionMatriz(multiplicacionMatriz(tensorMatrices(h,x),tensorMatrices(h,h)),oo)
-    for i in c:
-        print(i)
-              
-
 
 
 

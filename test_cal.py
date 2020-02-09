@@ -71,12 +71,35 @@ class testNumerosComplejosCal(unittest.TestCase):
         
 
     def testTensor(self):
-        oo = [[(1,0)],[(0,0)],[(0,0)],[(0,0)]]
         h = [[(1/(2**0.5),0),(1/(2**0.5),0)],[(1/(2**0.5),0),(1/(2**0.5)*-1,0)]]
-        x = [[(0,0),(1,0)],[(1,0),(0,0)]]
+        x = [[(0,0),(1,0)],[(1,0),(0,0)]]    
+        c = cal_complejos.tensorMatrices(h,x)
+        self.assertEqual(c,[[(0.0, 0.0), (0.7071067811865475, 0.0), (0.0, 0.0), (0.7071067811865475, 0.0)], [(0.7071067811865475, 0.0), (0.0, 0.0), (0.7071067811865475, 0.0), (0.0, 0.0)], [(0.0, 0.0), (0.7071067811865475, 0.0), (-0.0, 0.0), (-0.7071067811865475, 0.0)], [(0.7071067811865475, 0.0), (0.0, 0.0), (-0.7071067811865475, 0.0), (-0.0, 0.0)]])
+        
+    '''test vectores'''
+    def testSumaV(self):
+        a = [(12,31),(15,31),(19,64)]
+        b = [(15,41),(65,13),(46,49)]
+        self.assertEqual(cal_complejos.sumaVector(a,b),[(27, 72), (80, 44), (65, 113)])
+
+    def testInversoAdVector(self):
+        a = [(12,31),(15,31),(19,64)]
+        self.assertEqual(cal_complejos.vectorInversoAd(a),[(-12, -31), (-15, -31), (-19, -64)])
+
+    def testVectorPorEscalar(self):
+        a = [(12,31),(15,31),(19,64)]
+        self.assertEqual(cal_complejos.vectorPorEscalar(5,a),[(60, 155), (75, 155), (95, 320)])
+
+    def testConjugadoVector(self):
+        a = [(12,31),(15,31),(19,64)]
+        self.assertEqual(cal_complejos.conjugadoVector(a),[(12, -31), (15, -31), (19, -64)])
+
+    def testProductoInterno(self):
+        a = [(12,31),(15,31),(19,64)]
+        b = [(15,41),(65,13),(46,49)]
+        self.assertEqual(cal_complejos.productoInterno(a,b),(-2781, 7042))
+  
     
-        c = multiplicacionMatriz(multiplicacionMatriz(tensorMatrices(h,x),tensorMatrices(h,h)),oo)
-        self.assertEqual(c,[[(1/(2**0.5),0),(1/(2**0.5),0)],[(0,0),(0,0)]])
         
 
 if __name__ == '__main__':
