@@ -68,7 +68,7 @@ def main():
 main()
     
         
-'''https://github.com/AriasAEnima/CNYT/blob/master/Librerias/Quiz%20Simulador.ipynb'''
+
 
         
             
