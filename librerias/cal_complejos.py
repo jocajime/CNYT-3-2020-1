@@ -23,7 +23,8 @@ def division(a,b):
 
 #retorna el modulo de un numero complejo representado por una tupla
 def modulo(a):
-    return (a[0]**2+a[1]**2)**0.5
+    print(a)
+    return ((a[0]**2)+(a[1]**2))**0.5
 
 #retorna el conjugado de un numero complejo representado por una tupla
 def conjugado(a):
@@ -92,7 +93,7 @@ def matrizPorEscalar(r,a):
     return [vectorPorEscalar(r,a[i]) for i in range(len(a))]
 
 def transpuestaMatriz(a):
-    return [[matriz[j][i] for j in range(len(a))] for i in range(len(a[0]))]
+    return [[a[j][i] for j in range(len(a))] for i in range(len(a[0]))]
 
 def conjugadoMatriz(a):
     return [conjugadoVector(a[i]) for i in range(len(a))]

@@ -65,18 +65,19 @@ def vector_final_imaginario(num_rendijas):
 def imprimir_matriz(a):
     for i in range(len(a)):
         print(a[i])
+def union_sistemas(a,b):
+    return cal_complejos.tensorMatrices(a,b)
 
-def main():
-    imprimir_matriz(vector_final_real(2))
-    print("--------")
-    imprimir_matriz(vector_final_imaginario(2))
-    print("--------")
-    imprimir_matriz(multiples_rendijas_imaginario(2))
+##def main():
+####    imprimir_matriz(vector_final_real(2))
+####    print("--------")
+####    imprimir_matriz(vector_final_imaginario(2))
+####    print("--------")
+##    imprimir_matriz(cal_complejos.transpuestaMatriz(vector_final_imaginario(2)))
+##
+##main()
 
-
-main()
     
-        
 
 
         
