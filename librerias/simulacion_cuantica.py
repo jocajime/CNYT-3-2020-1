@@ -1,27 +1,12 @@
-
-def multiplicacionMatriz(a, b):
-    if len(a[0]) == len(b):
-        filas = len(a)
-        columnas = len(b[0])
-        res = [[0 for i in range(columnas)] for j in range(filas)]
-        for i in range(0, filas):
-            for j in range(0, columnas):
-                temp = 0
-                for k in range(0, len(b)):
-                    temp += a[i][k]* b[k][j]
-                res[i][j] = temp
-        return res
-    else:
-        print("las matrices no se pueden multiplicar")
-        return False
+import cal_complejos
 
 def confirmar_matriz(a):
     estado = True
     columnas = len(a[0])
     for i in range(columnas):
-        temp = 0
+        temp = (0,0)
         for j in range(len(a)):
-            temp += a[j][i]
+            temp = cal_complejos.suma(temp,a[j][i])
         if temp == 0:
             estado = False
             break
@@ -32,37 +17,61 @@ def t_clics(a,t):
     if confirmar_matriz(a):
         res = [[a[j][i] for i in range(len(a[0]))] for j in range(len(a))]
         for i in range(t-1):
-            res = multiplicacionMatriz(res, a)
+            res = cal_complejos.multiplicacionMatriz(res, a)
         return res
 
-def multiples_rendijas(r):
+def multiples_rendijas_real(r):
     n = 2+3*r
-    matriz = [[0 for i in range(n)] for j in range(n)]
+    matriz = [[(0,0) for i in range(n)] for j in range(n)]
     for j in range(1,r+1):
-        matriz[j][0] = 1/r
+        matriz[j][0] = (1/r,0)
     temp = r+1       
     for j in range(1,r+1):
-        matriz[temp][j] = 1/3
-        matriz[temp+1][j] = 1/3
-        matriz[temp+2][j] = 1/3
+        matriz[temp][j] = (1/3,0)
+        matriz[temp+1][j] = (1/3,0)
+        matriz[temp+2][j] = (1/3,0)
         temp+=2
     for i in range(r+1,n):
-        matriz[i][i] = 1
-    
+        matriz[i][i] = (1,0)
     
     return matriz
 
-def vector_final(num_rendijas):
-    vectori = [[0] for i in range(2+3*num_rendijas)]
-    vectori[0][0] = 1
-    return multiplicacionMatriz(t_clics(multiples_rendijas(num_rendijas),2),vectori)
+def multiples_rendijas_imaginario(r):
+    n = 2+3*r
+    matriz = [[(0,0) for i in range(n)] for j in range(n)]
+    for j in range(1,r+1):
+        matriz[j][0] = (1/(2**0.5),0)
+    temp = r+1       
+    for j in range(1,r+1):
+        matriz[temp][j] = (-1/(6**0.5),1/(6**0.5))
+        matriz[temp+1][j] = (-1/(6**0.5),-1/(6**0.5))
+        matriz[temp+2][j] = (1/(6**0.5),-1/(6**0.5))
+        temp+=2
+    for i in range(r+1,n):
+        matriz[i][i] = (1,0)    
+    return matriz
+
+
+def vector_final_real(num_rendijas):
+    vectori = [[(0,0)] for i in range(2+3*num_rendijas)]
+    vectori[0][0] = (1,0)
+    return cal_complejos.multiplicacionMatriz(t_clics(multiples_rendijas_real(num_rendijas),2),vectori)
+
+def vector_final_imaginario(num_rendijas):
+    vectori = [[(0,0)] for i in range(2+3*num_rendijas)]
+    vectori[0][0] = (1,0)
+    return cal_complejos.multiplicacionMatriz(t_clics(multiples_rendijas_imaginario(num_rendijas),2),vectori)
 
 def imprimir_matriz(a):
     for i in range(len(a)):
         print(a[i])
 
 def main():
-    imprimir_matriz(vector_final(3))
+    imprimir_matriz(vector_final_real(2))
+    print("--------")
+    imprimir_matriz(vector_final_imaginario(2))
+    print("--------")
+    imprimir_matriz(multiples_rendijas_imaginario(2))
 
 
 main()
