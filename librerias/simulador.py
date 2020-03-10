@@ -12,8 +12,11 @@ def simular(clicks):
     plt.ylabel('probabilidad')
     plt.title('Evolucion del sistema '+str(clicks)+' clicks')
     plt.legend()
-    plt.show()
+    plt.savefig("simulacion.png")
 
+
+
+simular(2)
 
 
     

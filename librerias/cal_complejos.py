@@ -23,7 +23,6 @@ def division(a,b):
 
 #retorna el modulo de un numero complejo representado por una tupla
 def modulo(a):
-    print(a)
     return ((a[0]**2)+(a[1]**2))**0.5
 
 #retorna el conjugado de un numero complejo representado por una tupla
@@ -50,6 +49,8 @@ def phase(a):
 
 def sumaVector(a,b):
     return [suma(a[i],b[i]) for i in range(len(a))]
+def restaVector(a,b):
+    return [resta(a[i],b[i]) for i in range(len(a))]
 
 def vectorInversoAd(a):
     return [(a[i][0]*-1,a[i][1]*-1) for i in range(len(a))]
@@ -61,10 +62,10 @@ def conjugadoVector(a):
     return [conjugado(a[i]) for i in range(len(a))]
 
 def productoInterno(a, b):
-    if len(a) == len(b):
+    if len(a[0]) == len(b):
         res = (0, 0)
-        for i in range(len(a)):
-            res = suma(multiplicacion(a[i], b[i]),res)
+        for i in range(len(a[0])):
+            res = suma(multiplicacion(a[0][i], b[i][0]),res)
         return res
     else: print("la dimension de los vectores es incorrecta")
 
@@ -80,11 +81,18 @@ def distanciaVectores(a,b):
         temp += (a[i] - b[i])**2
     return (temp)**0.5
 
+def productoEscalar(a,b):
+    temp = (0,0)
+    for i in range(len(a[0])):
+        temp = suma(temp,multiplicacion(a[0][i],b[0][i]))
+    return temp
 
 '''matrices complejas'''
 
 def sumaMatrices(a,b):
     return [sumaVector(a[i],b[i]) for i in range(len(a))]
+def restaMatrices(a,b):
+    return [restaVector(a[i],b[i]) for i in range(len(a))]
 
 def matrizInversoAd(a):
     return [[(a[i][j][0]*-1,a[i][j][1]*-1) for j in range(len(a[0]))] for i in range(len(a)) ]
