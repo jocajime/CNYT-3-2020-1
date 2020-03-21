@@ -63,17 +63,17 @@ def conjugadoVector(a):
     return [conjugado(a[i]) for i in range(len(a))]
 
 def productoInterno(a, b):
-    if len(a[0]) == len(b):
+    if len(a) == len(b):
         res = (0, 0)
-        for i in range(len(a[0])):
-            res = suma(multiplicacion(a[0][i], b[i][0]),res)
+        for i in range(len(a)):
+            res = suma(multiplicacion(a[i], b[i]),res)
         return res
     else: print("la dimension de los vectores es incorrecta")
 
 def normaVectorial(a):
     res = 0
     for i in a:
-        res += modulo(i)
+        res += modulo(i)**2
     return res**0.5
 
 def distanciaVectores(a,b):
@@ -119,7 +119,7 @@ def adjuntaMatriz(a):
     return conjugadoMatriz(b)
 
 def multiplicacionMatriz(a, b):
-    if len(a) == len(b[0]):
+    if len(a[0]) == len(b):
         filas = len(a)
         columnas = len(b[0])
         res = [[(0, 0) for i in range(columnas)] for j in range(filas)]
@@ -133,10 +133,10 @@ def multiplicacionMatriz(a, b):
     else:
         print("las matrices no se pueden multiplicar")
         return False
-def matrizporvector_h(a,v)
+def matrizporvector_h(a,v):
     return multiplicacionMatriz(a, transpuestaVector_h(v))
 
-def matrizporvector_va,v)
+def matrizporvector_v(a,v):
     return multiplicacionMatriz(a,v)
 
 
@@ -173,6 +173,10 @@ def tensorMatrices(a,b):
             res.append(c)
            
     return res
+
+def imprimir_matriz(a):
+    for i in range(len(a)):
+        print(a[i])
 
 
 

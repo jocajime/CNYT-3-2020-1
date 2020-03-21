@@ -1,5 +1,6 @@
 import unittest
 import cal_complejos
+import simulacion_cuantica as sim
 
 
 class testNumerosComplejosCal(unittest.TestCase):
@@ -98,9 +99,15 @@ class testNumerosComplejosCal(unittest.TestCase):
         a = [(12,31),(15,31),(19,64)]
         b = [(15,41),(65,13),(46,49)]
         self.assertEqual(cal_complejos.productoInterno(a,b),(-2781, 7042))
-  
-    
-        
+
+    '''test simulacion cuantica'''
+    def testRendijasReal(self):
+        res = [(0.0, 0.0),(0.0, 0.0),(0.0, 0.0),(0.16666666666666666, 0.0),(0.16666666666666666, 0.0),(0.3333333333333333, 0.0),(0.16666666666666666, 0.0),(0.16666666666666666, 0.0)]    
+        self.assertEqual(cal_complejos.transpuestaVector_v(sim.vector_final_real(2)),res)
+
+    def testRendijasImaginario(self):
+        res = [(0.0, 0.0),(0.0, 0.0),(0.0, 0.0),(-0.2886751345948129, 0.2886751345948129),(-0.2886751345948129, -0.2886751345948129),(0.0, 0.0),(-0.2886751345948129, -0.2886751345948129),(0.2886751345948129, -0.2886751345948129)]
+        self.assertEqual(cal_complejos.transpuestaVector_v(sim.vector_final_imaginario(2)),res)
 
 if __name__ == '__main__':
     unittest.main()

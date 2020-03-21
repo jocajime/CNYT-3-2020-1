@@ -1,4 +1,19 @@
 import cal_complejos
+import matplotlib.pyplot as plt
+
+
+def simular(clicks):
+    v = vector_final_imaginario(clicks)
+    v = cal_complejos.transpuestaMatriz(v)
+    a = [cal_complejos.modulo(v[0][i]) for i in range(len(v[0]))]
+    x1 = [i for i in range(len(a))]
+    plt.bar(x1,a, label = 'probabilidad', width = 0.5, color = 'blue')
+    plt.ylabel('probabilidad')
+    plt.title('Evolucion del sistema '+str(clicks)+' clicks')
+    plt.legend()
+    plt.savefig("simulacion.png")
+
+
 
 def confirmar_matriz(a):
     estado = True
@@ -62,20 +77,12 @@ def vector_final_imaginario(num_rendijas):
     vectori[0][0] = (1,0)
     return cal_complejos.multiplicacionMatriz(t_clics(multiples_rendijas_imaginario(num_rendijas),2),vectori)
 
-def imprimir_matriz(a):
-    for i in range(len(a)):
-        print(a[i])
+
 def union_sistemas(a,b):
     return cal_complejos.tensorMatrices(a,b)
 
-##def main():
-####    imprimir_matriz(vector_final_real(2))
-####    print("--------")
-####    imprimir_matriz(vector_final_imaginario(2))
-####    print("--------")
-##    imprimir_matriz(cal_complejos.transpuestaMatriz(vector_final_imaginario(2)))
-##
-##main()
+
+
 
     
 
