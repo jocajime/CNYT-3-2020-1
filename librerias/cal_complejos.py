@@ -5,17 +5,13 @@ import math
 def suma(a,b):
     return (a[0]+b[0],a[1]+b[1])
 
-#resta dos numeros complejos representados por una tupla, y retorna un numero complejo representado por una tupla
-def resta(a,b):
-    return (a[0]-b[0],a[1]-b[1])
-
-#multiplica un numero complejo representado por una tupla con un numero escalar, y retorna un numero complejo representado por una tupla
-def porEscalar(r,a):
-    return (r*a[0],r*a[1])
-
 #multiplica dos numeros complejos representados por una tupla, y retorna un numero complejo representado por una tupla
 def multiplicacion(a,b):
     return (a[0]*b[0]-a[1]*b[1],a[0]*b[1]+a[1]*b[0])
+
+#resta dos numeros complejos representados por una tupla, y retorna un numero complejo representado por una tupla
+def resta(a,b):
+    return (a[0]-b[0],a[1]-b[1])
 
 #divide dos numeros complejos representados por una tupla, y retorna un numero complejo representado por una tupla
 def division(a,b):
@@ -33,6 +29,14 @@ def conjugado(a):
 def aPolar(a):
     return (modulo(a),math.atan(a[1]/a[0]))
 
+#multiplica un numero complejo representado por una tupla con un numero escalar, y retorna un numero complejo representado por una tupla
+def porEscalar(r,a):
+    return (r*a[0],r*a[1])
+
+#retorna la phase de un numero complejo
+def phase(a):
+    return math.atan2(a[1]/a[0])
+
 #imprime un numero complejo 
 def prettyPrint(a):
     if a[1] < 0:
@@ -41,14 +45,11 @@ def prettyPrint(a):
         
         return ""+str(a[0])+"+"+str(a[1])+"i"
 
-#retorna la phase de un numero complejo
-def phase(a):
-    return math.atan2(a[1]/a[0])
-
 ''' vectores complejos '''
 
 def sumaVector(a,b):
     return [suma(a[i],b[i]) for i in range(len(a))]
+
 def restaVector(a,b):
     return [resta(a[i],b[i]) for i in range(len(a))]
 
@@ -87,15 +88,22 @@ def productoEscalar(a,b):
         temp = suma(temp,multiplicacion(a[0][i],b[0][i]))
     return temp
 
+def transpuestaVector_h(a):
+    return [[a[i]] for i in range(len(a))]
+
+def transpuestaVector_v(a):
+    return [a[i][0] for i in range(len(a))]
+
 '''matrices complejas'''
 
 def sumaMatrices(a,b):
     return [sumaVector(a[i],b[i]) for i in range(len(a))]
+
 def restaMatrices(a,b):
     return [restaVector(a[i],b[i]) for i in range(len(a))]
 
 def matrizInversoAd(a):
-    return [[(a[i][j][0]*-1,a[i][j][1]*-1) for j in range(len(a[0]))] for i in range(len(a)) ]
+    return [vectorInversoAd(a[i]) for i in range(len(a))]
 
 def matrizPorEscalar(r,a):
     return [vectorPorEscalar(r,a[i]) for i in range(len(a))]
@@ -111,7 +119,7 @@ def adjuntaMatriz(a):
     return conjugadoMatriz(b)
 
 def multiplicacionMatriz(a, b):
-    if len(a[0]) == len(b):
+    if len(a) == len(b[0]):
         filas = len(a)
         columnas = len(b[0])
         res = [[(0, 0) for i in range(columnas)] for j in range(filas)]
@@ -125,6 +133,12 @@ def multiplicacionMatriz(a, b):
     else:
         print("las matrices no se pueden multiplicar")
         return False
+def matrizporvector_h(a,v)
+    return multiplicacionMatriz(a, transpuestaVector_h(v))
+
+def matrizporvector_va,v)
+    return multiplicacionMatriz(a,v)
+
 
 def matrizHermitania(a):
     if len(a) == len(a[0]):
