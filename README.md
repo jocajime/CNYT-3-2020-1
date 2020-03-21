@@ -1,17 +1,21 @@
 # COMPLEX NUMBER CALCULATOR
-In this repository a library of complex numbers called "cal_complejos" is exposed, in this different operations are expressed for these numbers.
-   - sum of complexes
-   - subtraction of complexes
-   - multiplication of a complex by a scalar scalar
-   - mutiplication between complexes
-   - division between complexes
-   - module of a complex
-   - conjugate of a complex
-   - change a complex from a Cartesian to a scalar
-   - print a complex number correctly
-In this library the complex numbers are represented by means of a tuple, and it is imported with its name.
+Different libraries are kept in this repository that help us in the implementation and understanding of quantum systems.
+For this purpose, the following libraries are kept:
+- cal_complejos
+- quantum_simulation
+- quantum_system
+in these the complex numbers are represented as (a, b) a being the integer part and b representing the imaginary part.
+accompanied by these there is one that tests the correct operation of the libraries.
+-cal_complejos:
+performs basic operations on complex numbers, vectors and complex matrices.
+
+- simulacion_cuantica:
+gives functions to show results of double slit experiment
+- sistema_cuantico:
+It proposes functions for the understanding of quantum systems.
+
 # Getting Started
-- Download the file cal_complejos.py found in this repository.
+- Download the file librerias found in this repository.
 - Save the file in the same place as the project in which you want to implement it.
 # Prerequisites
 to use this library you need to have python 3.7 installed on your computer
