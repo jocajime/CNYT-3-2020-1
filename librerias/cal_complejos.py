@@ -5,17 +5,21 @@ import math
 def suma(a,b):
     return (a[0]+b[0],a[1]+b[1])
 
-#multiplica dos numeros complejos representados por una tupla, y retorna un numero complejo representado por una tupla
-def multiplicacion(a,b):
-    return (a[0]*b[0]-a[1]*b[1],a[0]*b[1]+a[1]*b[0])
-
 #resta dos numeros complejos representados por una tupla, y retorna un numero complejo representado por una tupla
 def resta(a,b):
     return (a[0]-b[0],a[1]-b[1])
 
+#multiplica dos numeros complejos representados por una tupla, y retorna un numero complejo representado por una tupla
+def multiplicacion(a,b):
+    return (a[0]*b[0]-a[1]*b[1],a[0]*b[1]+a[1]*b[0])
+
 #divide dos numeros complejos representados por una tupla, y retorna un numero complejo representado por una tupla
 def division(a,b):
     return ((a[0]*b[0]+a[1]*b[1])/(b[0]**2+b[1]**2),(a[1]*b[0]-a[0]*b[1])/(b[0]**2+b[1]**2))
+
+#multiplica un numero complejo representado por una tupla con un numero escalar, y retorna un numero complejo representado por una tupla
+def porEscalar(r,a):
+    return (r*a[0],r*a[1])
 
 #retorna el modulo de un numero complejo representado por una tupla
 def modulo(a):
@@ -29,13 +33,9 @@ def conjugado(a):
 def aPolar(a):
     return (modulo(a),math.atan(a[1]/a[0]))
 
-#multiplica un numero complejo representado por una tupla con un numero escalar, y retorna un numero complejo representado por una tupla
-def porEscalar(r,a):
-    return (r*a[0],r*a[1])
-
 #retorna la phase de un numero complejo
 def phase(a):
-    return math.atan2(a[1]/a[0])
+    return math.atan2(a[1],a[0])
 
 #imprime un numero complejo 
 def prettyPrint(a):
@@ -109,7 +109,8 @@ def matrizPorEscalar(r,a):
     return [vectorPorEscalar(r,a[i]) for i in range(len(a))]
 
 def transpuestaMatriz(a):
-    return [[a[j][i] for j in range(len(a))] for i in range(len(a[0]))]
+    return [
+        [a[j][i] for j in range(len(a))] for i in range(len(a[0]))]
 
 def conjugadoMatriz(a):
     return [conjugadoVector(a[i]) for i in range(len(a))]
@@ -169,7 +170,7 @@ def tensorMatrices(a,b):
         for j in range(len(b)):
             c = []
             for x in range(len(a[i])):
-                for y in range(len(b[x])): c.append(multiplicacion(a[i][x], b[j][y]))
+                for y in range(len(b[j])): c.append(multiplicacion(a[i][x], b[j][y]))
             res.append(c)
            
     return res
